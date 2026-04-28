@@ -2,6 +2,7 @@ package com.anant.helpdesk.config;
 
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.security.Keys;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import java.security.Key;
@@ -10,8 +11,8 @@ import java.util.Date;
 @Component
 public class JwtUtil {
 
-    private static final String SECRET =
-            "THIS_IS_A_VERY_SECRET_KEY_FOR_JWT_TOKEN_GENERATION_123456";
+    @Value("${JWT_SECRET}")
+    private String SECRET ;
 
     private static final long EXPIRATION_TIME = 1000 * 60 * 60; // 1 hour
 
